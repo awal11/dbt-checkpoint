@@ -170,9 +170,12 @@ def get_models(
         else:
             filename = split_key[-1]
         print(
-            f"Key: {key}, filename: {filename}, node: {node}"
+            f"Key: {key}, filename: {filename}, node: {node.get("name")} {node.get("version")}"
         )
         if filename in filenames and split_key[0] == "model":
+            print(
+                f"Adding Key: {key}, filename: {filename}"
+            )
             yield Model(key, node.get("name"), filename, node)  # pragma: no mutate
 
 
