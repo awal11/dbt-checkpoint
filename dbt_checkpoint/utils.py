@@ -171,9 +171,10 @@ def get_models(
             filename = split_key[-1]
         aname = node.get("name")
         aversion = node.get("version")
-        print(
-            f"Key: {key}, filename: {filename}, node: {aname} {aversion}"
-        )
+        if(split_key[0] == "model")
+            print(
+                f"Key: {key}, filename: {filename}, node: {aname} {aversion}"
+            )
         if filename in filenames and split_key[0] == "model":
             print(
                 f"Adding Key: {key}, filename: {filename}"
