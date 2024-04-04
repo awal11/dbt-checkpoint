@@ -170,7 +170,7 @@ def get_models(
 
         # Versions are supported since dbt-core 1.5
         if node.get("version") and split_key[-1] == f"v{node.get('version')}":
-            filename = split_key[-2]
+            filename = f"{split_key[-2]}_v{node.get('version')}
         else:
             filename = split_key[-1]
         aname = node.get("name")
