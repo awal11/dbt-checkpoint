@@ -150,6 +150,10 @@ def get_models(
     include_disabled: bool = False,
 ) -> Generator[Model, None, None]:
     nodes = manifest.get("nodes", {})
+    print(
+        f"get_models: all filenames: {filenames}"
+    )
+    
     for key, node in nodes.items():
         # Ephemeral models break many tests and should be wholly excluded,
         # someone can make an argument for their inclusion on a case by case basis
@@ -173,11 +177,11 @@ def get_models(
         aversion = node.get("version")
         if (split_key[0] == "model"):
             print(
-                f"Key: {key}, filename: {filename}, node: {aname} {aversion}"
+                f"get_models: Key: {key}, filename: {filename}, node: {aname} {aversion}"
             )
         if filename in filenames and split_key[0] == "model":
             print(
-                f"Adding Key: {key}, filename: {filename}"
+                f"get_models: Adding Key: {key}, filename: {filename}"
             )
             yield Model(key, node.get("name"), filename, node)  # pragma: no mutate
 
