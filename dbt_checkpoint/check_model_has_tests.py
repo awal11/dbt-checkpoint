@@ -45,6 +45,11 @@ def check_test_cnt(
         )
         tests = [test for test in childs if isinstance(test, Test)]
         model_test_cnt = len(tests)
+        print(
+            f"Debug: {model.model_name}: "
+            f"has {model_test_cnt} tests, while {test_cnt} are required.",
+        )
+        
         if model_test_cnt < test_cnt:
             status_code = 1
             print(
