@@ -171,7 +171,7 @@ def get_models(
             filename = split_key[-1]
         aname = node.get("name")
         aversion = node.get("version")
-        if(split_key[0] == "model")
+        if (split_key[0] == "model"):
             print(
                 f"Key: {key}, filename: {filename}, node: {aname} {aversion}"
             )
