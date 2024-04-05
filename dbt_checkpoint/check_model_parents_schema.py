@@ -29,7 +29,8 @@ def check_parents_schema(
 
     # get manifest nodes that pre-commit found as changed
     models = get_models(manifest, filenames, include_disabled=include_disabled)
-
+    print(f"debug check_model_parents: whitelist {whitelist}")
+    
     for model in models:
         parents = list(
             get_parent_childs(
