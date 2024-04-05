@@ -36,11 +36,12 @@ def check_column_name_contract(
     sqls = get_filenames(paths, [".sql"])
     filenames = set(sqls.keys())
     models = get_models(catalog, filenames, include_disabled=include_disabled)
-
+    print(f" check_col_contract, filenames: {filenames}, models: {models}, dtypes {dtypes}")
     for model in models:
         for col in model.node.get("columns", []).values():
             col_name = col.get("name")
             col_type = col.get("type")
+            print(f" check_col_contract, col name: {col_name}, type: {col_type}")
 
             # Check all files on dtypes follow naming pattern
             if any(col_type.lower() == dtype.lower() for dtype in dtypes):
