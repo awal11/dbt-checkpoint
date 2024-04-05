@@ -35,7 +35,7 @@ def check_column_name_contract(
     status_code = 1
     sqls = get_filenames(paths, [".sql"])
     filenames = set(sqls.keys())
-    models = get_models(catalog, filenames, include_disabled=include_disabled)
+    models = get_models(manifest, filenames, include_disabled=include_disabled)
     print(f" check_col_contract, filenames: {filenames}, models: {models}, dtypes {dtypes}")
     for model in models:
         for col in model.node.get("columns", []).values():
