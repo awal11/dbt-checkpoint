@@ -46,17 +46,23 @@ def check_child_parent_cnt(
             )
         )
         real_cnt = {"childs": len(childs), "parents": len(parents)}
+        print (f"debugging: required table: {required_cnt}")
         for required in required_cnt:
             req_cnt = required.get("cnt")
             req_operator = required.get("operator", operator.lt)
             req_type = required.get("type")  # pragma: no mutate
             req_dep = required.get("dep", "")  # pragma: no mutate
             real_value = real_cnt.get(req_dep)
+            print(
+                f"debugging: {model.model_name}: "
+                f"has {real_value} {req_type}, but {req_type} {req_cnt} "
+                f"is/are required. operator {req_operator} ",
+            )            
             if req_cnt and req_operator(real_value, req_cnt):
                 status_code = 1
                 print(
                     f"{model.model_name}: "
-                    f"has {real_value} {req_type}, but {req_type} {req_cnt}"
+                    f"has {real_value} {req_type}, but {req_type} {req_cnt} "
                     f"is/are required.",
                 )
 
