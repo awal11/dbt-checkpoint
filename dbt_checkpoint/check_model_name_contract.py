@@ -31,7 +31,7 @@ def check_model_name_contract(
     status_code = 0
     sqls = get_filenames(paths, [".sql"])
     filenames = set(sqls.keys())
-    models = get_models(manifest, filenames, include_disabled=include_disabled)
+    models = get_models(catalog, filenames, include_disabled=include_disabled)
 
     for model in models:
         model_name = model.filename
