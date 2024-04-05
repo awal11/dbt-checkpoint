@@ -55,14 +55,14 @@ def check_child_parent_cnt(
             real_value = real_cnt.get(req_dep)
             print(
                 f"debugging: {model.model_name}: "
-                f"has {real_value} {req_type}, but {req_type} {req_cnt} "
+                f"has {real_value} {req_dep} {req_type}, but {req_type} {req_cnt} "
                 f"is/are required. operator {req_operator} ",
             )            
             if req_cnt and req_operator(real_value, req_cnt):
                 status_code = 1
                 print(
                     f"{model.model_name}: "
-                    f"has {real_value} {req_type}, but {req_type} {req_cnt} "
+                    f"has {real_value} {req_dep} {req_type}, but {req_type} {req_cnt} "
                     f"is/are required.",
                 )
 
