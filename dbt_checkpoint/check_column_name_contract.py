@@ -32,7 +32,7 @@ def check_column_name_contract(
         paths, manifest, extensions=[".sql"], exclude_pattern=exclude_pattern
     )
 
-    status_code = 0
+    status_code = 1
     sqls = get_filenames(paths, [".sql"])
     filenames = set(sqls.keys())
     models = get_models(catalog, filenames, include_disabled=include_disabled)
